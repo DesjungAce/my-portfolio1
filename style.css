@@ -595,3 +595,74 @@ textarea {
   height: auto !important;
   object-fit: contain !important;
 }
+
+/* ---------- Mobile layout polish ---------- */
+@media (max-width: 760px) {
+  /* Prevent sideways scrolling without changing the header layout */
+  html,
+  body {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  /* Hero buttons stack neatly */
+  .hero-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hero-buttons .button {
+    width: 100%;
+    max-width: 320px;
+    text-align: center;
+  }
+
+  /* Projects stack into one column on phones */
+  .project-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .project-photo {
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+  }
+
+  /* Keep About centered and comfortable */
+  .about-card {
+    padding: 1.5rem;
+  }
+
+  .about-photo {
+    width: min(320px, 100%);
+  }
+
+  /* Contact remains one column */
+  .contact-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-card,
+  .contact-form {
+    width: 100%;
+  }
+
+  .contact-form .button {
+    width: 100%;
+  }
+}
+
+/* Extra-small phones */
+@media (max-width: 420px) {
+  .hero h1 {
+    font-size: 1.6rem;
+  }
+
+  .section h2 {
+    font-size: 1.5rem;
+  }
+
+  .project-photo {
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+  }
+}
