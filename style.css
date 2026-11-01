@@ -1,0 +1,602 @@
+/* =========================
+   Claudia’s Portfolio
+   Pastel Lavender Theme
+   ========================= */
+
+:root {
+  --lavender-bg: #f6f1fb;
+  --lavender-soft: #efe6fa;
+  --lavender-card: #ffffff;
+  --lavender-border: #e2d4f5;
+  --lavender-medium: #d9c6f2;
+  --purple-strong: #5b3a86;
+  --purple-dark: #3d2559;
+  --purple-button: #7b5ea7;
+  --purple-button-hover: #644a8c;
+  --text-main: #3d2559;
+  --shadow: 0 10px 25px rgba(91, 58, 134, 0.12);
+  --radius: 18px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+  line-height: 1.65;
+  color: var(--text-main);
+  background:
+    radial-gradient(circle at 10% 10%, #f3e8ff 0%, transparent 45%),
+    radial-gradient(circle at 90% 20%, #e8dcff 0%, transparent 40%),
+    var(--lavender-bg);
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: var(--purple-strong);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+a:hover,
+a:focus-visible {
+  color: var(--purple-dark);
+}
+
+.container {
+  width: min(1100px, 92%);
+  margin-inline: auto;
+}
+
+.section {
+  padding: 4rem 0;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  color: var(--purple-dark);
+  line-height: 1.25;
+  margin-top: 0;
+}
+
+h1 {
+  font-size: clamp(2rem, 5vw, 3.4rem);
+}
+
+h2 {
+  font-size: clamp(1.7rem, 3.5vw, 2.4rem);
+  margin-bottom: 0.75rem;
+}
+
+h3 {
+  font-size: 1.25rem;
+}
+
+.section-text {
+  max-width: 650px;
+  margin-top: 0;
+}
+
+/* Header */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(246, 241, 251, 0.94);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--lavender-border);
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  min-height: 72px;
+}
+
+.brand {
+  font-size: 1.25rem;
+  font-weight: 800;
+  text-decoration: none;
+  color: var(--purple-dark);
+}
+
+.menu-button {
+  display: none;
+  padding: 0.65rem 1rem;
+  border: 2px solid var(--lavender-medium);
+  border-radius: 999px;
+  background: var(--lavender-card);
+  color: var(--purple-dark);
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.menu-button:hover,
+.menu-button:focus-visible {
+  background: var(--lavender-soft);
+}
+
+.menu {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.menu a {
+  display: block;
+  padding: 0.6rem 0.9rem;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 600;
+  color: var(--purple-strong);
+}
+
+.menu a:hover,
+.menu a:focus-visible {
+  background: var(--lavender-soft);
+  color: var(--purple-dark);
+}
+
+/* Hero */
+.hero {
+  padding: 5rem 0 4.5rem;
+  text-align: center;
+}
+
+.hello {
+  display: inline-block;
+  margin: 0 0 1.25rem;
+  padding: 0.5rem 1.1rem;
+  border: 1px solid var(--lavender-medium);
+  border-radius: 999px;
+  background: var(--lavender-card);
+  color: var(--purple-strong);
+  font-weight: 600;
+}
+
+.hero-text {
+  max-width: 640px;
+  margin: 1.25rem auto 2rem;
+  font-size: 1.1rem;
+}
+
+.hero-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.9rem;
+}
+
+/* Buttons */
+.button {
+  display: inline-block;
+  padding: 0.85rem 1.5rem;
+  border: 2px solid transparent;
+  border-radius: 999px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.button:focus-visible {
+  outline: 3px solid var(--purple-strong);
+  outline-offset: 3px;
+}
+
+.button.primary {
+  background: var(--purple-button);
+  color: #ffffff;
+}
+
+.button.primary:hover {
+  background: var(--purple-button-hover);
+  transform: translateY(-2px);
+}
+
+.button.soft {
+  background: var(--lavender-card);
+  border-color: var(--lavender-medium);
+  color: var(--purple-dark);
+}
+
+.button.soft:hover {
+  background: var(--lavender-soft);
+  transform: translateY(-2px);
+}
+
+/* Cards */
+.project-grid,
+.about-layout,
+.contact-layout {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.project-grid {
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  margin-top: 2rem;
+}
+
+.project-card,
+.about-card,
+.contact-card,
+.contact-form {
+  background: var(--lavender-card);
+  border: 1px solid var(--lavender-border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.project-card {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Responsive clickable project images */
+.photo-link {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: var(--lavender-soft);
+  cursor: zoom-in;
+}
+
+.photo-link:focus-visible {
+  outline: 3px solid var(--purple-strong);
+  outline-offset: 3px;
+}
+
+.project-photo {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  object-position: center;
+}
+
+.project-details {
+  padding: 1.25rem;
+}
+
+.project-details p {
+  margin: 0.5rem 0 0;
+}
+
+/* Project pagination */
+.project-pagination {
+  display: flex;
+  justify-content: center;
+  gap: 0.6rem;
+  margin-top: 2rem;
+}
+
+.page-button {
+  width: 46px;
+  height: 46px;
+  border: 2px solid var(--lavender-medium);
+  border-radius: 50%;
+  background: var(--lavender-card);
+  color: var(--purple-dark);
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.page-button:hover,
+.page-button:focus-visible {
+  background: var(--lavender-soft);
+}
+
+.page-button.is-active {
+  background: var(--purple-button);
+  border-color: var(--purple-button);
+  color: #ffffff;
+}
+
+/* About: larger centered box */
+.about-layout {
+  grid-template-columns: 1fr;
+  justify-items: center;
+  margin-top: 2rem;
+}
+
+.about-card {
+  width: min(950px, 100%);
+  padding: clamp(2rem, 6vw, 4rem);
+  text-align: center;
+}
+
+.skills {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 0;
+  margin: 1rem 0 2rem;
+  list-style: none;
+}
+
+.skills li {
+  padding: 0.5rem 0.9rem;
+  border: 1px solid var(--lavender-medium);
+  border-radius: 999px;
+  background: var(--lavender-soft);
+  font-weight: 600;
+}
+
+.about-photo {
+  width: min(380px, 100%);
+  margin-inline: auto;
+  border-radius: var(--radius);
+  border: 4px solid var(--lavender-soft);
+}
+
+/* Contact */
+.contact-layout {
+  grid-template-columns: 1fr;
+  margin-top: 2rem;
+}
+
+.contact-card {
+  padding: clamp(1.25rem, 4vw, 2rem);
+}
+
+.contact-card p {
+  margin: 0.5rem 0;
+}
+
+.contact-form {
+  padding: clamp(1.25rem, 4vw, 2rem);
+}
+
+.contact-form div {
+  margin-bottom: 1.1rem;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.4rem;
+  font-weight: 700;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 0.85rem 1rem;
+  border: 2px solid var(--lavender-medium);
+  border-radius: 12px;
+  background: #fffdfa;
+  color: var(--text-main);
+  font: inherit;
+}
+
+input:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid var(--purple-strong);
+  outline-offset: 2px;
+  border-color: var(--purple-strong);
+}
+
+textarea {
+  resize: vertical;
+}
+
+.form-status {
+  min-height: 1.5rem;
+  margin: 0.75rem 0 0;
+  font-weight: 600;
+}
+
+/* Footer */
+.site-footer {
+  padding: 2rem 0;
+  border-top: 1px solid var(--lavender-border);
+  background: var(--lavender-soft);
+  text-align: center;
+  color: var(--purple-strong);
+}
+
+/* Lightbox */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.25rem;
+  background: rgba(43, 25, 66, 0.9);
+}
+
+.lightbox[hidden] {
+  display: none;
+}
+
+.lightbox-inner {
+  position: relative;
+  width: min(950px, 100%);
+  max-height: 92vh;
+  text-align: center;
+}
+
+.lightbox-image {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  max-height: 75vh;
+  height: auto;
+  object-fit: contain;
+  object-position: center;
+  border-radius: var(--radius);
+  background: #ffffff;
+  box-shadow: var(--shadow);
+}
+
+.lightbox-caption {
+  margin: 0.9rem auto 0;
+  max-width: 700px;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: -0.75rem;
+  right: -0.25rem;
+  z-index: 2;
+  width: 46px;
+  height: 46px;
+  border: 2px solid #ffffff;
+  border-radius: 50%;
+  background: var(--purple-button);
+  color: #ffffff;
+  font-size: 1.35rem;
+  font-weight: 800;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.lightbox-close:hover,
+.lightbox-close:focus-visible {
+  background: var(--purple-button-hover);
+  outline: 3px solid #ffffff;
+  outline-offset: 3px;
+}
+
+/* Tablet and larger */
+@media (min-width: 700px) {
+  .contact-layout {
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+  }
+}
+
+/* Phones */
+@media (max-width: 760px) {
+  .menu-button {
+    display: inline-block;
+  }
+
+  .menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding: 0.75rem;
+    background: var(--lavender-card);
+    border-bottom: 1px solid var(--lavender-border);
+    box-shadow: var(--shadow);
+    display: none;
+  }
+
+  .menu.is-open {
+    display: flex;
+  }
+
+  .menu a {
+    padding: 0.9rem 1rem;
+    border-radius: 12px;
+  }
+
+  .hero {
+    padding: 3.5rem 0;
+  }
+
+  .section {
+    padding: 3rem 0;
+  }
+
+  .lightbox {
+    padding: 0.75rem;
+  }
+
+  .lightbox-close {
+    top: 0.5rem;
+    right: 0.5rem;
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .button,
+  .button.primary,
+  .button.soft {
+    transform: none;
+  }
+}
+
+/* Force About Me section to center */
+#about h2,
+#about h3,
+#about h4,
+#about p {
+  text-align: center !important;
+}
+
+#about .about-layout {
+  display: grid !important;
+  grid-template-columns: 1fr !important;
+  justify-items: center !important;
+}
+
+#about .about-card {
+  width: min(950px, 100%) !important;
+  margin-inline: auto !important;
+  text-align: center !important;
+  padding: clamp(2rem, 6vw, 4rem) !important;
+}
+
+#about .about-photo {
+  display: block !important;
+  width: min(380px, 100%) !important;
+  height: auto !important;
+  margin-inline: auto !important;
+}
+
+/* Force responsive project images */
+.project-photo {
+  display: block !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  height: auto !important;
+  aspect-ratio: 4 / 3 !important;
+  object-fit: cover !important;
+  object-position: center !important;
+}
+
+.lightbox-image {
+  display: block !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  max-height: 75vh !important;
+  height: auto !important;
+  object-fit: contain !important;
+}

@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Claudia’s Portfolio 🌸</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <header class="site-header">
+    <nav class="nav container" aria-label="Main navigation">
+      <a class="brand" href="#home">Claudia 🌷</a>
+
+      <button class="menu-button" id="menuButton" aria-expanded="false" aria-controls="menu">
+        Menu 🍓
+      </button>
+
+      <ul class="menu" id="menu">
+        <li><a href="#home">Home 🏠</a></li>
+        <li><a href="#projects">Projects 🎀</a></li>
+        <li><a href="#about">About 💌</a></li>
+        <li><a href="#contact">Contact 📮</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section id="home" class="hero">
+      <div class="container">
+        <p class="hello">Hello, welcome to my little world! 🌸</p>
+
+        <h1>
+          I’m Claudia Klarissa anak Piriy💜<br>
+          Welcome to my homepage!
+        </h1>
+
+        <p class="hero-text">
+          This is a dedicated website for my Web Application Development
+          (TMN 3223) Assignment 🧸✨
+        </p>
+
+        <div class="hero-buttons">
+          <a class="button primary" href="#projects">See my projects 🎀</a>
+          <a class="button soft" href="#contact">Say hello 💌</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="section">
+      <div class="container">
+        <h2>My Projects 🎀</h2>
+        <p class="section-text">
+          Below are my personal/course project images🌷
+        </p>
+
+        <div class="project-pages">
+          <div class="project-page is-active" id="project-page-1" data-page="1">
+            <div class="project-grid">
+              <article class="project-card">
+                <a
+                  class="photo-link"
+                  href="images/art-full.jpg"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  <img
+                    class="project-photo"
+                    src="images/art-full.jpg"
+                    alt="Example of Claudia’s artwork"
+                  >
+                </a>
+
+                <div class="project-details">
+                  <h3>Art 1🎨</h3>
+                  <p>
+                    One of my drawings, which is drawn in a form of traditional method.
+                    I consider drawing as my passion.
+                  </p>
+                </div>
+              </article>
+
+              <article class="project-card">
+                <a
+                  class="photo-link"
+                  href="images/OC.jpg"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  <img
+                    class="project-photo"
+                    src="images/OC.jpg"
+                    alt="project"
+                  >
+                </a>
+
+                <div class="project-details">
+                  <h3>Art 2</h3>
+                  <p>
+                    This is also another art project of mine that took 3 hours
+                    for me to complete.
+                  </p>
+                </div>
+              </article>
+            </div>
+          </div>
+
+          <div class="project-page" id="project-page-2" data-page="2" hidden>
+            <div class="project-grid">
+              <article class="project-card">
+                <a
+                  class="photo-link"
+                  href="images/project-full.jpg"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  <img
+                    class="project-photo"
+                    src="images/project-full.jpg"
+                    alt="project"
+                  >
+                </a>
+
+                <div class="project-details">
+                  <h3>Project 1</h3>
+                  <p>
+                    This is a project for 'System Analysis and Design' course.
+                    We designed a new look for smart bins that can be used for recycling.
+                  </p>
+                </div>
+              </article>
+
+              <article class="project-card">
+                <a
+                  class="photo-link"
+                  href="images/DFD.png"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  <img
+                    class="project-photo"
+                    src="images/DFD.png"
+                    alt="Course project work displayed on a laptop"
+                  >
+                </a>
+
+                <div class="project-details">
+                  <h3>Project 2</h3>
+                  <p>
+                    This is also System Analysis and Design project. I helped creating
+                    context diagrams for my group's Fitness Application prototype.
+                  </p>
+                </div>
+              </article>
+            </div>
+          </div>
+
+          <div class="project-page" id="project-page-3" data-page="3" hidden>
+            <div class="project-grid">
+              <article class="project-card">
+                <a
+                  class="photo-link"
+                  href="images/recycling.jpg"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  <img
+                    class="project-photo"
+                    src="images/recycling.jpg"
+                    alt="Project"
+                  >
+                </a>
+
+                <div class="project-details">
+                  <h3>Project 3</h3>
+                  <p>
+                    My team after we are done with our paper recycling project for
+                    'Softskills and Basic Volunteerism' course.
+                  </p>
+                </div>
+              </article>
+
+              <article class="project-card">
+                <a
+                  class="photo-link"
+                  href="images/deadlock.png"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  <img
+                    class="project-photo"
+                    src="images/deadlock.png"
+                    alt="project"
+                  >
+                </a>
+
+                <div class="project-details">
+                  <h3>Project 4</h3>
+                  <p>
+                    This is a project for 'Database Concept and Design' course.
+                    I help to perform deadlock to acquire error MySQL message.
+                  </p>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+
+        <nav class="project-pagination" aria-label="Project pages">
+          <button class="page-button is-active" type="button" data-target="project-page-1">1</button>
+          <button class="page-button" type="button" data-target="project-page-2">2</button>
+          <button class="page-button" type="button" data-target="project-page-3">3</button>
+        </nav>
+      </div>
+    </section>
+
+    <section id="about" class="section">
+      <div class="container">
+        <h2>About Me 💌</h2>
+
+        <div class="about-layout">
+          <div class="about-card">
+            <h3>Hello there! 🐰</h3>
+            <p>
+              I am a 3rd year student from Network Computing and a beginner
+              developer who enjoys pastel colors, tidy layouts, and accessible websites.
+              I am eager to learn something new!
+              I love drawing characters, I love to read thriller/horror books and
+              loves to play games!🌈
+            </p>
+
+            <h4>My skills</h4>
+            <ul class="skills">
+              <li>HTML 🌼</li>
+              <li>Database 🪻</li>
+              <li>HCI design 📱</li>
+            </ul>
+
+            <h4>What I look like!</h4>
+            <img
+              class="about-photo"
+              src="claudia.jpg"
+              alt="What I look like"
+              loading="lazy"
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section">
+      <div class="container">
+        <h2>Contact Me 📮</h2>
+        <p class="section-text">
+          Send me a message, or email me directly! 💌
+        </p>
+
+        <div class="contact-layout">
+          <div class="contact-card">
+            <h3>Let’s chat 🌷</h3>
+            <p><a href="mailto:claudiaklarissa@gmail.com">My Personal Gmail 😎</a></p>
+            <p><a href="https://github.com/DesjungAce" target="_blank" rel="noopener">My GitHub Profile 🐱</a></p>
+            <p><a href="https://www.linkedin.com/in/claudia-klarissa-15aa68337/" target="_blank" rel="noopener">My LinkedIn Profile 💼</a></p>
+          </div>
+
+          <form class="contact-form" id="contactForm" novalidate>
+            <div>
+              <label for="name">Name 🌸</label>
+              <input id="name" name="name" type="text" required>
+            </div>
+
+            <div>
+              <label for="email">Email 📧</label>
+              <input id="email" name="email" type="email" required>
+            </div>
+
+            <div>
+              <label for="message">Message me! 💌</label>
+              <textarea id="message" name="message" rows="5" required></textarea>
+            </div>
+
+            <button class="button primary" type="submit">Send message 💌</button>
+            <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>© <span id="year"></span> CK 🌸</p>
+  </footer>
+
+  <script src="script.js"></script>
+
+  <script>
+    const pageButtons = document.querySelectorAll('.page-button');
+    const projectPages = document.querySelectorAll('.project-page');
+
+    pageButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const targetId = button.dataset.target;
+
+        pageButtons.forEach(btn => btn.classList.remove('is-active'));
+        projectPages.forEach(page => {
+          page.classList.remove('is-active');
+          page.hidden = true;
+        });
+
+        button.classList.add('is-active');
+        const targetPage = document.getElementById(targetId);
+        targetPage.classList.add('is-active');
+        targetPage.hidden = false;
+
+        document.getElementById('projects').scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      });
+    });
+  </script>
+</body>
+</html>
