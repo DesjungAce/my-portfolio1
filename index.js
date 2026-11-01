@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
   if (menuButton && menu) {
     menuButton.addEventListener("click", () => {
       const isOpen = menu.classList.toggle("is-open");
-      menuButton.setAttribute("aria-expanded", isOpen);
+      menuButton.setAttribute("aria-expanded", isOpen ? "true" : "false");
     });
 
     menu.querySelectorAll("a").forEach(link => {
@@ -43,7 +43,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
       if (!targetPage) return;
 
-      pageButtons.forEach(pageButton => pageButton.classList.remove("is-active"));
+      pageButtons.forEach(pageButton => {
+        pageButton.classList.remove("is-active");
+      });
 
       projectPages.forEach(page => {
         page.classList.remove("is-active");
@@ -54,10 +56,14 @@ document.addEventListener("DOMContentLoaded", () => {
       targetPage.classList.add("is-active");
       targetPage.hidden = false;
 
-      document.getElementById("projects").scrollIntoView({
-        behavior: "smooth",
-        block: "start"
-      });
+      const projectsSection = document.getElementById("projects");
+
+      if (projectsSection) {
+        projectsSection.scrollIntoView({
+          behavior: "smooth",
+          block: "start"
+        });
+      }
     });
   });
 
@@ -70,20 +76,36 @@ document.addEventListener("DOMContentLoaded", () => {
   const lightboxClose = document.getElementById("lightboxClose");
   let lastOpenedImage = null;
 
-  function openLightbox(button) {
-    const image = button.querySelector("img");
+  function openLightbox(link) {
+    if (!lightbox || !lightboxImage) return;
 
-    lastOpenedImage = button;
-    lightboxImage.src = button.getAttribute("data-full");
-    lightboxImage.alt = image ? image.alt : "Expanded project image";
-    lightboxCaption.textContent = button.getAttribute("data-caption") || "";
+    const image = link.querySelector("img");
+
+    lastOpenedImage = link;
+
+    lightboxImage.src =
+      link.getAttribute("data-full") || link.getAttribute("href");
+
+    lightboxImage.alt = image
+      ? image.alt
+      : "Expanded project image";
+
+    if (lightboxCaption) {
+      lightboxCaption.textContent =
+        link.getAttribute("data-caption") || "";
+    }
 
     lightbox.hidden = false;
     document.body.style.overflow = "hidden";
-    lightboxClose.focus();
+
+    if (lightboxClose) {
+      lightboxClose.focus();
+    }
   }
 
   function closeLightbox() {
+    if (!lightbox) return;
+
     lightbox.hidden = true;
     document.body.style.overflow = "";
 
@@ -92,20 +114,27 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  document.querySelectorAll(".photo-link").forEach(button => {
-    button.addEventListener("click", () => openLightbox(button));
+  document.querySelectorAll(".photo-link").forEach(link => {
+    link.addEventListener("click", event => {
+      event.preventDefault();
+      openLightbox(link);
+    });
   });
 
-  lightboxClose.addEventListener("click", closeLightbox);
+  if (lightboxClose) {
+    lightboxClose.addEventListener("click", closeLightbox);
+  }
 
-  lightbox.addEventListener("click", event => {
-    if (event.target === lightbox) {
-      closeLightbox();
-    }
-  });
+  if (lightbox) {
+    lightbox.addEventListener("click", event => {
+      if (event.target === lightbox) {
+        closeLightbox();
+      }
+    });
+  }
 
   document.addEventListener("keydown", event => {
-    if (event.key === "Escape" && !lightbox.hidden) {
+    if (event.key === "Escape" && lightbox && !lightbox.hidden) {
       closeLightbox();
     }
   });
@@ -116,32 +145,41 @@ document.addEventListener("DOMContentLoaded", () => {
   const contactForm = document.getElementById("contactForm");
   const formStatus = document.getElementById("formStatus");
 
-  contactForm.addEventListener("submit", event => {
-    event.preventDefault();
+  if (contactForm && formStatus) {
+    contactForm.addEventListener("submit", event => {
+      event.preventDefault();
 
-    const name = document.getElementById("name").value.trim();
-    const email = document.getElementById("email").value.trim();
-    const message = document.getElementById("message").value.trim();
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const message = document.getElementById("message").value.trim();
 
-    if (!name || !email || !message) {
-      formStatus.textContent = "Please fill in all fields before sending. 💌";
-      formStatus.style.color = "#a33a4e";
-      return;
-    }
+      if (!name || !email || !message) {
+        formStatus.textContent =
+          "Please fill in all fields before sending. 💌";
+        formStatus.style.color = "#a33a4e";
+        return;
+      }
 
-    if (!email.includes("@") || !email.includes(".")) {
-      formStatus.textContent = "Please enter a valid email address. 📧";
-      formStatus.style.color = "#a33a4e";
-      return;
-    }
+      if (!email.includes("@") || !email.includes(".")) {
+        formStatus.textContent =
+          "Please enter a valid email address. 📧";
+        formStatus.style.color = "#a33a4e";
+        return;
+      }
 
-    formStatus.textContent = "Thank you! Your message has been noted. 🌸";
-    formStatus.style.color = "#4b6b45";
-    contactForm.reset();
-  });
+      formStatus.textContent =
+        "Thank you! Your message has been noted. 🌸";
+      formStatus.style.color = "#4b6b45";
+      contactForm.reset();
+    });
+  }
 
   // ======================
   // Footer year
   // ======================
-  document.getElementById("year").textContent = new Date().getFullYear();
+  const year = document.getElementById("year");
+
+  if (year) {
+    year.textContent = new Date().getFullYear();
+  }
 });
