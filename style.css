@@ -831,3 +831,9 @@ textarea {
     aspect-ratio: 1 / 1;
   }
 }
+
+@media screen and (max-width: 760px) and (orientation: portrait) {
+  body {
+    border-top: 8px solid red !important;
+  }
+}
